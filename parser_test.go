@@ -74,8 +74,7 @@ type Hello9 struct {
 // @Security petstore_auth=write:pets,read:pets
 // @Response 200 desc=123123 schema.$ref=arlong.Hello9
 func TestAnnotation(t *testing.T) {
-	basePath := "/Users/witooh/dev/go/src/github.com/plimble/arlong"
-	parser := NewParser(basePath)
+	parser := NewParser(".")
 	b, _ := parser.JSON()
 	pretty.Println(string(b))
 	pretty.Println(swagger.Definitions)
