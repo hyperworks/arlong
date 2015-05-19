@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"github.com/codegangsta/cli"
 	"github.com/plimble/arlong"
 	"io/ioutil"
@@ -31,7 +33,13 @@ func main() {
 			Value: "swagger.json",
 			Usage: "Output file name",
 		},
+
+		cli.BoolFlag{
+			Name:  "pretty-print, P",
+			Usage: "Pretty-print (indent) the resulting JSON",
+		},
 	}
+
 	app.Action = func(c *cli.Context) {
 		p := c.String("path")
 		parser := arlong.NewParser(p)
@@ -39,6 +47,16 @@ func main() {
 		if err != nil {
 			os.Stderr.WriteString(err.Error())
 			return
+		}
+
+		if c.Bool("pretty-print") {
+			buf := &bytes.Buffer{}
+			if err = json.Indent(buf, b, "", "  "); err != nil {
+				os.Stderr.WriteString(err.Error())
+				return
+			}
+
+			b = buf.Bytes()
 		}
 
 		if err = ioutil.WriteFile(path.Join(c.String("out"), c.String("file")), b, 0755); err != nil {
