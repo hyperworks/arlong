@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"github.com/codegangsta/cli"
-	"github.com/plimble/arlong"
+	"github.com/hyperworks/arlong"
 	"io/ioutil"
 	"os"
 	"path"
