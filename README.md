@@ -1,4 +1,4 @@
-Arlong [![godoc badge](http://godoc.org/github.com/plimble/arlong?status.png)](http://godoc.org/github.com/plimble/arlong)
+Arlong [![godoc badge](http://godoc.org/github.com/plimble/arlong?status.png)](http://godoc.org/github.com/plimble/arlong) [![Build Status](https://travis-ci.org/hyperworks/arlong.svg)](https://travis-ci.org/hyperworks/arlong)
 ========
 
 Swagger 2.0 Generator
