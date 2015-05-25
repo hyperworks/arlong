@@ -59,7 +59,7 @@ func main() {
 			b = buf.Bytes()
 		}
 
-		if err = ioutil.WriteFile(path.Join(c.String("out"), c.String("file")), b, 0755); err != nil {
+		if err = ioutil.WriteFile(path.Join(c.String("out"), c.String("file")), b, 0644); err != nil {
 			os.Stderr.WriteString(err.Error())
 			return
 		}
